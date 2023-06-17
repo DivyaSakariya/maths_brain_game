@@ -4,13 +4,14 @@ import 'package:maths_brain_game/utils/all_routes.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  List<String> allSigns = ['+', '-', 'x', '➗'];
+  List<String> allSigns = ['➕', '➖', '✖', '➗'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Maths Brain Game"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(22),
@@ -20,17 +21,26 @@ class HomePage extends StatelessWidget {
             children: allSigns
                 .map((e) => GestureDetector(
                       onTap: () {
-                        if (e == '+') {
-                          Navigator.of(context).pushNamed(MyRoutes.sumPage);
-                        } else if (e == '-') {
-                          Navigator.of(context).pushNamed(MyRoutes.subPage);
-                        }
+                        (e == '➕')
+                            ? Navigator.of(context).pushNamed(MyRoutes.sumPage)
+                            : (e == '➖')
+                                ? Navigator.of(context)
+                                    .pushNamed(MyRoutes.subPage)
+                                : (e == '✖')
+                                    ? Navigator.of(context)
+                                        .pushNamed(MyRoutes.multiPage)
+                                    : Navigator.of(context)
+                                        .pushNamed(MyRoutes.divPage);
                       },
                       child: Card(
-                        child: Text(
-                          "Click to play $e number game...!!",
-                          style: const TextStyle(
-                            fontSize: 18,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 80,
+                          child: Text(
+                            "Click to play $e number game...!!",
+                            style: const TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:maths_brain_game/controllers/value_controller.dart';
 import 'package:provider/provider.dart';
 
-class SumPage extends StatelessWidget {
-  const SumPage({super.key});
+class MultiPage extends StatelessWidget {
+  const MultiPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Guess The Sum Game'),
+        title: const Text('Guess The Multiply Game'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -66,7 +66,7 @@ class SumPage extends StatelessWidget {
                               height: 30,
                               width: 30,
                               child: const Text(
-                                "+",
+                                "x",
                                 style: TextStyle(
                                   fontSize: 24,
                                 ),
@@ -117,11 +117,11 @@ class SumPage extends StatelessWidget {
                       const Spacer(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: provider.optSum
+                        children: provider.optMulti
                             .map(
                               (e) => GestureDetector(
                                 onTap: () {
-                                  provider.check1Sum(
+                                  provider.check1Multi(
                                       selectedOpt: e, context: context);
                                 },
                                 child: Card(
@@ -193,7 +193,7 @@ class SumPage extends StatelessWidget {
                             height: 30,
                             width: 30,
                             child: const Text(
-                              "+",
+                              "x",
                               style: TextStyle(
                                 fontSize: 24,
                               ),
@@ -244,11 +244,11 @@ class SumPage extends StatelessWidget {
                     const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: provider.optSum
+                      children: provider.optMulti
                           .map(
                             (e) => GestureDetector(
                               onTap: () {
-                                provider.check2Sum(
+                                provider.check2Multi(
                                     selectedOpt: e, context: context);
                               },
                               child: Card(
